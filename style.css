@@ -1,0 +1,65 @@
+* {
+    font-family: Fifaks;
+    text-align: center;
+}
+
+h1{
+    margin-top: 50px;
+}
+
+form {
+    display: block;
+    margin-top: 10em;
+}
+
+form button {
+    height: 80px;
+    width: 200px;
+    /* background-color: white; */
+    font-size: 20px;
+    border-width: 3px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgb(255, 251, 251);
+    
+}
+form button:focus {
+    box-shadow: 0 0 0 4px #bdbfc2
+}
+
+
+#start-game-button {
+    font-weight: 700;
+}
+
+.game-grid {
+    margin-top: 150px;
+    display: grid;
+    height: 150px;
+    border-width: 100px;
+  }
+  
+
+.row {
+    display: flex;
+    margin: auto;
+}
+  
+.col {
+    padding: 60px;
+    border: 3px solid black;
+    box-sizing: border-box;
+    border-radius: 15px;
+  }
+
+.col img{
+    width: 50px;
+    height: 50px;
+}
+
+@font-face {
+    font-family: "Fifaks";  
+    src: url("./fonts/Fifaks10Dev1.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
