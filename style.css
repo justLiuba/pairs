@@ -57,6 +57,12 @@ form button:focus {
     height: 50px;
 }
 
+.win{
+    width: 300px;
+    height: 300px;
+    margin-top: 100px;
+}
+
 @font-face {
     font-family: "Fifaks";  
     src: url("./fonts/Fifaks10Dev1.ttf") format("truetype"); 

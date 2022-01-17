@@ -2,6 +2,7 @@ const startGameButton = document.querySelector('#start-game-button')
 const gameGrid = document.querySelector('.game-grid')
 const gameImages = document.querySelectorAll('.col img')
 const gameCells = document.querySelectorAll('.col')
+const header = document.querySelector('h1')
 const defoultImage = './img/pixel.png'
 const images = {
     img1: {
@@ -16,7 +17,6 @@ const images = {
 
 //start game
 startGameButton.addEventListener('click', function(){
-    const header = document.querySelector('h1')
     header.innerText = 'Enjoy the game!'
     const buttons = document.querySelector('form')
     buttons.remove()
@@ -47,8 +47,19 @@ for (i = 0; i < imagesNumber * 2;){
     }
 }
 
-// open and close cells logick
+// game
 let openedCells = 0
+let guessedCells = 0
+let firstCell = ''
+let secondCell = ''
+
+function closeGameCells() {
+    for (i = 0; i < imagesNumber * 2;){
+        gameImages[i].setAttribute('src', defoultImage)
+        i++
+        openedCells = 0
+    }
+}
 
 gameCells.forEach(item => {
     item.addEventListener('click', function() {
@@ -57,18 +68,30 @@ gameCells.forEach(item => {
             const cellImg = item.firstChild
             const hiddenImg = cellImg.getAttribute('data-hidden-image')
             cellImg.src = hiddenImg
-        } else {
-            openedCells = 0
-            for (i = 0; i < imagesNumber * 2;){
-                gameImages[i].setAttribute('src', defoultImage)
-                i++
+            if (openedCells === 1){
+                firstCell = hiddenImg
+            }
+            if (openedCells === 2) {
+                secondCell = hiddenImg
+                if (firstCell === secondCell) {
+                    openedCells = 0
+                    guessedCells += 2
+                    setTimeout(userWin(), 2000)
+                } else {
+                    setTimeout(closeGameCells, 2000)
+                }
             }
         }
-        
     })
 })
 
-
-
-
-
+function userWin() {
+    if (guessedCells === imagesNumber * 2){
+        gameGrid.remove()
+        header.innerText = 'Congratulations, You win!!!'
+        const winImg = document.createElement('img')
+        winImg.setAttribute('class', 'win')
+        winImg.src = './img/trophy.png'
+        document.body.append(winImg)
+    }
+}
