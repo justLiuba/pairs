@@ -12,10 +12,9 @@ form {
     margin-top: 10em;
 }
 
-form button {
+button {
     height: 80px;
     width: 200px;
-    /* background-color: white; */
     font-size: 20px;
     border-width: 3px;
     margin-left: 20px;
@@ -32,8 +31,18 @@ form button:focus {
     font-weight: 700;
 }
 
+#next-level-button {
+    font-size: 30px;
+    font-weight: 800;
+    display: block;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
 .game-grid {
-    margin-top: 150px;
+    margin-top: 80px;
     display: grid;
     height: 150px;
     border-width: 100px;
@@ -60,7 +69,7 @@ form button:focus {
 .win{
     width: 300px;
     height: 300px;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 @font-face {
